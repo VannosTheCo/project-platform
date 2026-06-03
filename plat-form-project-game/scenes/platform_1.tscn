@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://btawve4a1dleo"]
+
+[ext_resource type="Script" uid="uid://bq6j33tw3nmrl" path="res://scripts/platform_1.gd" id="1_3g4sf"]
+[ext_resource type="Texture2D" uid="uid://pbiv6m7rou8v" path="res://assets/brackeys_platformer_assets/sprites/platforms.png" id="1_y3yn5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlgqw"]
+size = Vector2(30.5, 8.5)
+
+[node name="Platform1" type="AnimatableBody2D" unique_id=858602455]
+script = ExtResource("1_3g4sf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1017423419]
+position = Vector2(2, 1.4305115e-06)
+texture = ExtResource("1_y3yn5")
+region_enabled = true
+region_rect = Rect2(16, 48, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1641993496]
+position = Vector2(2, 0.25)
+shape = SubResource("RectangleShape2D_nlgqw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=118092256]
+position = Vector2(2, 0)
+
+[node name="enter" type="CollisionShape2D" parent="Area2D" unique_id=984725737]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_nlgqw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://crgniigby15gs"]
+
+[ext_resource type="Script" uid="uid://dgnwv1d3yyhvo" path="res://scripts/pop_text.gd" id="1_5wusb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wusb"]
+radius = 8.062258
+
+[node name="pop-text" type="Area2D" unique_id=1833482245]
+position = Vector2(2, 0)
+script = ExtResource("1_5wusb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=229761338]
+shape = SubResource("CircleShape2D_5wusb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
